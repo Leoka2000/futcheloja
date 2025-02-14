@@ -8,6 +8,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
+
+
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="icon" type="image/png" href="{{asset('logo.png')}}">
@@ -18,6 +22,19 @@
 
     <!-- Styles -->
     @livewireStyles
+
+    <!-- {{-- Cropper.js --}} -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" />
+    <!-- PhotosSwipe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- PhotosSwipe -->
+   
+    <!-- {{-- Sortable.js --}} --> 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.1/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
+    <!-- !-- {{-- Sortable.js --}} --> 
 </head>
 
 <body class="relative font-sans antialiased">
@@ -29,7 +46,7 @@
                 <x-mary-icon name="o-bars-3" class="cursor-pointer" />
             </label>
             <a class="cursor-pointer" href="/"><img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}"
-                alt="logo" title="logo" /></a>
+                    alt="logo" title="logo" /></a>
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>

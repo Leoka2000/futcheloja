@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +13,23 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Styles -->
+    <!-- {{-- Cropper.js --}} -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" />
+    <!-- PhotosSwipe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- PhotosSwipe -->
+
+    <!-- {{-- Sortable.js --}} -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.1/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.3/dist/photoswipe.min.css" rel="stylesheet">
+    <!-- !-- {{-- Sortable.js --}} -->
     @livewireStyles
 </head>
+
+
+
 <body class="font-sans antialiased">
     <x-mary-nav sticky full-width class="shadow-sm">
         <x-slot:brand>
@@ -33,16 +48,21 @@
     <x-mary-main with-nav full-width>
         <livewire:components.sidebar />
         <x-slot:content>
-            <div class="p-4">
-                <h1 class="text-2xl font-bold">{{ $product->name }}</h1>
-                <img src="{{ asset('storage/' . $product->image[0]) }}" alt="{{ $product->name }}" class="w-full h-96 object-cover">
-                <p class="text-gray-700 dark:text-gray-300">{{ $product->description }}</p>
-                <p class="text-xl font-semibold dark:text-red-600 text-red-500">R$ {{ $product->price }}</p>
-            </div>
+
+            <!-- SECTION STARTS  -->
+
+            <livewire:components.individual-item />
+             <!-- SECTION ENDS -->
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
         </x-slot:content>
     </x-mary-main>
 
     {{-- TOAST area --}}
     <x-mary-toast />
+
+
 </body>
+
 </html>
