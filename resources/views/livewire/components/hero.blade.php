@@ -37,8 +37,10 @@
                             <div class="flex justify-start items-center gap-4"><span class="block xl:inline">Futchê</span> <img class="h-10 w-10 mt-1 rounded-full" src="{{asset('bandeira.png')}}" /> </div>
                             <span class="block xl:inline"><span class="text-yellow-400">Seja</span><span class="dark:text-green-500 text-green-600"> Bem</span> <span class="dark:text-red-500 text-red-600">Vindo! </span> </span>
                         </h1>
+                        
                         <p class="mx-auto text-base dark:text-gray-200 text-gray-900 sm:max-w-md lg:text-xl md:max-w-3xl"> Para ter acesso ao catálogo, clique no botão abaixo e confira nossas peças Exclusivas </p>
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                            
                             <a
                                 @click="
         loading = true;
