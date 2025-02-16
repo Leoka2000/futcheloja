@@ -5,11 +5,13 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\ShoppingCart;
 use Illuminate\Support\Facades\Auth;
+use Mary\Traits\Toast;
 
 class AddToCart extends Component
 {
+    use Toast; // Use the Toast trait
+
     public $productId;
-    
 
     public function mount($productId)
     {
@@ -38,12 +40,19 @@ class AddToCart extends Component
                 'product_id' => $this->productId,
                 'quantity' => 1,
             ]);
+
+            // Trigger a success toast notification
+            $this->success(
+                'Product added to cart!', // Title
+                'Your product has been successfully added to your cart.', // Description
+                position: 'toast-top toast-end', // Position
+                timeout: 3000 // Timeout in milliseconds
+            );
         }
 
-        // Emit an event to update the cart icon or any other UI element
-        // $this->emit('cartUpdated');
+        // Dispatch an event to update the cart icon or any other UI element
+        $this->dispatch('cartUpdated');
     }
-
 
     public function render()
     {
