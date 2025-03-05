@@ -1,4 +1,4 @@
-<section class="flex flex-wrap items-center justify-center py-16 bg-inherit dark:bg-inherit min-w-screen px-4">
+<section class="flex flex-wrap items-center justify-center py-20 bg-inherit dark:bg-inherit min-w-screen px-4  max-w-7xl md:px-8 mx-auto xl:px-5">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
         <figure class="max-w-md mx-auto">
             <div class="flex items-center mb-4 text-yellow-300">

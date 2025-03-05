@@ -53,17 +53,7 @@ class ProductResource extends Resource
 
 
 
-                Forms\Components\Select::make('size')
-                    ->options([
-                        'P' => 'P',
-                        'M' => 'M',
-                        'G' => 'G',
-                        'GG' => 'GG',
-                        '2GG' => '2GG',
-                        '3GG' => '3GG',
-                        '4GG' => '4GG',
-                    ])
-                    ->required(),
+
                 Forms\Components\RichEditor::make('description')
                     ->nullable()
                     ->columnSpanFull(),
@@ -75,12 +65,13 @@ class ProductResource extends Resource
                     ->minValue(0),
 
                 Forms\Components\FileUpload::make('image')
-                    ->label('Product Images')
-                    ->multiple()
                     ->image()
-                    ->directory('public')
-                    ->preserveFilenames()
-                    ->columnSpanFull(),
+                    ->multiple()
+                    ->disk('public')
+                    ->label('Images')
+                    ->acceptedFileTypes(['image/*'])
+                    ->previewable()
+                    ->reorderable(),
             ]);
     }
 
@@ -93,9 +84,6 @@ class ProductResource extends Resource
                     ->sortable(),
 
 
-                Tables\Columns\TextColumn::make('size')
-                    ->searchable()
-                    ->sortable(),
 
                 Tables\Columns\TextColumn::make('tracking_code')
                     ->searchable()

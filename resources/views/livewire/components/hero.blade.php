@@ -41,44 +41,19 @@
                             <span class="block xl:inline"><span class="text-yellow-400">Seja</span><span class="dark:text-green-500 text-green-600"> Bem</span> <span class="dark:text-red-500 text-red-600">Vindo! </span> </span>
                         </h1>
                         <p class="mx-auto text-base dark:text-gray-200 text-gray-900 sm:max-w-md lg:text-xl md:max-w-3xl"> Para ter acesso ao catálogo, clique no botão abaixo e confira nossas peças esclusivas </p>
-                        {{-- <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                            <a
-                                @click="
-        loading = true;
-        setTimeout(() => {
-            window.location.href = '{{ route('components.shopping_cart_component_index') }}'; 
-        }, 500);"
-                                class="btn w-full customcssbtn btn-warning  mt-5 flex items-center justify-center"
-                                :disabled="loading">
-                                <span x-show="!loading">Comprar agora</span>
-                                <span x-show="loading">
-                                    <x-mary-loading class="text-gray-700 dark:text-gray-400 " x-show="loading" />
-                                </span>
-                            </a>
-                        </div> --}}
+                       
                     </div>
                 </div>
               
             </div>
         </div>
     </section>
-    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('latest-releases')
-    </diuv>
-    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('brasileirao-release')
-    </div>
-
-    <div class="items-center max-w-7xl px-8 mx-auto xl:px-5">
         @livewire('edicao-retro')
-    </div>
-
-
     <x-testimonials />
     <x-faq />
     <x-team />
-    
-
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    
 </x-guest-layout>

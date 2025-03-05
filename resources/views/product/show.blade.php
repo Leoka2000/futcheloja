@@ -150,9 +150,7 @@
 
 <div class="flex items-center space-x-1 xl:gap-2 gap-6 my-4 max-sm:flex-wrap max-sm:justify-center max-sm:gap-2">
     <img src="{{asset('mastercard.svg')}}" alt="MasterCard" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
-    <img src="{{asset('boleto.png')}}" alt="Boleto" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
     <img src="{{asset('pix.png')}}" alt="Pix" class="h-10 border border-gray-200 shadow-sm rounded-md p-1 px-2 max-sm:h-8">
-    <img src="{{asset('caixa.svg')}}" alt="Caixa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 max-sm:h-8 max-sm:p-2">
     <img src="{{asset('visa.png')}}" alt="Visa" class="h-10 border border-gray-200 shadow-sm rounded-md p-3 px-2 max-sm:h-8 max-sm:p-2">
 </div>
                                                         <div>
@@ -184,12 +182,10 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <div class="mt-4 p-4 bg-gray-50 rounded-lg text-xs text-gray-700">
-                                                        <p class="flex items-center"><img src="{{asset('boleto.png')}}" class="h-5 mr-2">O prazo de pagamento via boleto bancário é de 2 dias corridos.</p>
-                                                    </div>
+                                                   
                                                     <div class="mt-2 p-4 bg-green-50 rounded-lg gap-2 text-xs text-green-500">
                                                         <div class="flex gap-2 items-center justify-start "><img src="{{asset('pix.png')}}" class="h-14" />
-                                                            <p> com o PIX e priorizamos o despacho o mais breve possível!
+                                                            <p> Com o PIX priorizamos o despacho o mais breve possível!
                                                             <p>
                                                         </div>
                                                     </div>

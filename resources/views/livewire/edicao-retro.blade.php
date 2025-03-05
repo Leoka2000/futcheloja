@@ -1,4 +1,4 @@
-<section class="py-20 relative isolate overflow-x-hidden overflow-y-hidden bg-white dark:bg-inherit md:px-0">
+<section class="py-20 relative isolate overflow-x-hidden overflow-y-hidden bg-white dark:bg-inherit  max-w-7xl md:px-8 mx-auto xl:px-5">
   <h3 class="text-2xl mb-10 mx-4 font-bold text-left text-gray-700 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center flex items-center gap-2">
       Últimos Lançamentos
       <span class="inline-flex items-center mx-1 justify-center rounded-md bg-green-50 dark:bg-green-200 px-3 py-2 text-xs font-medium text-green-700 ring-1 ring-green-600/20 dark:ring-green-500 ring-inset">
@@ -101,7 +101,7 @@
                                  }, 800); 
                              ">
                              <span x-show="!loading">
-                                 <x-mary-button icon="o-shopping-bag" label="Ver mais" class="btn-sm w-full lg:btn" />
+                                 <x-mary-button icon="o-shopping-bag" label="Ver mais" class="w-full btn" />
                              </span>
                              <span x-show="loading">
                                  <x-mary-button class="btn-ghost btn-md relative">

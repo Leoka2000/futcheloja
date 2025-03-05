@@ -10,7 +10,7 @@
 
     <span class="absolute bottom-0 left-0"> </span>
 
-    <div class="relative px-16 mx-auto max-w-7xl">
+    <div class="relative md:px-8 px-4 mx-auto max-w-7xl">
         <p class="font-medium tracking-wide text-yellow-500 dark:text-yellow-400 uppercase">NOSSA EQUIPE</p>
         <h2 class="relative max-w-lg mt-5 mb-10 text-4xl font-semibold leading-tight text-gray-900 dark:text-gray-100 lg:text-5xl">Uma equipe incrível de <br>indivíduos incríveis</h2>
         <div class="grid w-full grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-4">
@@ -90,4 +90,4 @@
             </div>
         </div>
     </div>
-</section>x
+</section>
