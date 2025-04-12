@@ -115,7 +115,7 @@
             @empty
                 <!-- Placeholder when no products are available -->
                 <div class="w-full text-center py-10">
-                    <p class="text-gray-500 dark:text-gray-400 text-lg">Nenhum produto disponível no momento.</p>
+                             <x-mary-alert title="Nenhum produto disponível no momento." icon="o-exclamation-triangle" />
                 </div>
             @endforelse
         </swiper-container>
