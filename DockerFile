@@ -1,0 +1,43 @@
+# Use the official PHP image with required extensions
+FROM php:8.2-fpm-bullseye
+
+# Set working directory
+WORKDIR /var/www
+
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y \
+    git curl zip unzip libzip-dev libpng-dev libonig-dev libxml2-dev libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql zip gd
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Copy existing application directory contents
+COPY ./ /var/www
+
+# Install PHP dependencies
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 755 /var/www/storage /var/www/bootstrap/cache
+
+# Copy existing Laravel environment file
+COPY .env /var/www/.env
+
+# Generate optimized Laravel files (config, routes, views, etc.)
+RUN php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache
+
+# Expose port (same as Laravel default)
+EXPOSE 8000
+
+# Add Laravel runner script (mimicking Django's)
+RUN echo '#!/bin/bash' > /start.sh && \
+    echo 'php artisan migrate --force' >> /start.sh && \
+    echo 'php artisan serve --host=0.0.0.0 --port=${PORT:-8000}' >> /start.sh && \
+    chmod +x /start.sh
+
+# Runtime command
+CMD ["/start.sh"]
