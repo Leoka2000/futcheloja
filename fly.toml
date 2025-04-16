@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for futche on 2025-04-16T18:15:10+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'futche'
+primary_region = 'gru'
+console_command = 'php /var/www/html/artisan tinker'
+
+[build]
+  [build.args]
+    NODE_VERSION = '18'
+    PHP_VERSION = '8.2'
+
+[env]
+  APP_ENV = 'production'
+  DB_USERNAME="postgres"
+  APP_URL = "https://futche.fly.dev:8080"
+  DB_PORT=8080
+
+  
+[http_service]
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 1
