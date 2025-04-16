@@ -91,12 +91,12 @@ public function products()
 
         {{-- SORT --}}
         <x-slot:actions class="mt-7">
-            <x-mary-dropdown label="Seleções" class="btn-sm">
-                @foreach($categories as $category)
-                    <x-mary-menu-item wire:click="$set('category_id', {{ $category->id }})" title="{{ $category->name }}" />
-                @endforeach
-                <x-mary-menu-item wire:click="$set('category_id', null)" title="Todos" />
-            </x-mary-dropdown>
+             <x-mary-dropdown label="Seleções" class="btn-sm">
+        @foreach($categories as $category)
+            <x-mary-menu-item wire:click="$set('category_id', {{ $category->id }})" title="{{ $category->name }}" />
+        @endforeach
+        <x-mary-menu-item wire:click="$set('category_id', null)" title="Todos" />
+    </x-mary-dropdown>
     
             <x-mary-dropdown label="Times Europeus" class="btn-sm">
                 <x-mary-menu-item value="liga_alema" title="Liga Alemã" />
@@ -113,11 +113,16 @@ public function products()
         {{-- PRODUCTS LIST --}}
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach($products as $product)
-            <x-mary-card title="{{ $product->name }}">
-                <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
-                <a class="btn w-full mt-5 btn-warning" href="{{ route('product.show', $product->id) }}">Ver mais</a>
-            </x-mary-card>
-        @endforeach
+                <div class="product-card" data-category="{{ $product->category_id }}">
+                    <x-mary-card title="{{ $product->name }}" class="dark:bg-gray-800 bg-gray-50 text-sm relative shadow-md">
+                        <x-slot:figure>
+                            <img src="{{ asset('storage/' . ($product->image[0] ?? 'default.jpg')) }}" class="h-72 w-full" alt="{{ $product->name }}" />
+                        </x-slot:figure>
+                        <p class="text-lg font-semibold">R$ {{ $product->price }}</p>
+                        <a class="btn w-full mt-5 btn-warning" href="{{ route('product.show', $product->id) }}">Ver mais</a>
+                    </x-mary-card>
+                </div>
+            @endforeach
         </div>
     </div>
    

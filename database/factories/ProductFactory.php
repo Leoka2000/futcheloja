@@ -15,7 +15,7 @@ class ProductFactory extends Factory
      * @return array<string, mixed>
      */
 
- 
+
     public function definition(): array
     {
         // Generate multiple image URLs (e.g., 3 images)
@@ -24,17 +24,16 @@ class ProductFactory extends Factory
             "products/" . $this->faker->uuid . ".jpg",
         ];
 
-        
+
 
         return [
-            'category_id' => \App\Models\Category::factory(), // Assuming you have a Category factory
+
             'name' => $this->faker->word,
+
             'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL']),
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'image' => json_encode($imageUrls, JSON_UNESCAPED_SLASHES),
         ];
     }
-
-   
 }
