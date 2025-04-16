@@ -25,12 +25,10 @@
             </a>
 
       
-                <form method="POST" action="{{ route('logout') }}" x-data>
-                    @csrf
-                    <x-mary-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff" type="submit" />
-                </form>
-                <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost btn-sm" responsive />
+               
+      
     
         </span>
+        <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}" class="btn-ghost mr-2 btn-sm" responsive />
     </div>
 </section>
