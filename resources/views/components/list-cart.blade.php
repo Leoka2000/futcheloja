@@ -193,36 +193,41 @@
                     @method('PUT')   
                     <input type="hidden" name="product_id" value="{{ $item->product_id }}">
                     <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 mb-10 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                            <div class="flex items-center ps-3">
-                                <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size"  class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P</label>
-                            </div>
-                        </li>
-                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                            <div class="flex items-center ps-3">
-                                <input id="size-m-{{ $item->id }}" type="radio"  value="M" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-                                <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
-                            </div>
-                        </li>
-                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                            <div class="flex items-center ps-3">
-                                <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-                                <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
-                            </div>
-                        </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center ps-3">
+                            <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size"
+                                class="w-4 h-4 text-yellow-500 @if ($item->size == 'P') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
+                            <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm mr-2 font-medium text-gray-900 dark:text-gray-300">P</label>
+                        </div>
+                    </li>
                     
-
-                        <li class="w-full dark:border-gray-600">
-                            <div class="flex items-center ps-3">
-                                <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-                                <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
-                            </div>
-                        </li>
+                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center ps-3">
+                            <input id="size-m-{{ $item->id }}" type="radio" value="M" name="size"
+                                class="w-4 h-4 text-yellow-500 @if ($item->size == 'M') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
+                            <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm mr-2 font-medium text-gray-900 dark:text-gray-300">M</label>
+                        </div>
+                    </li>
+                    
+                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center ps-3">
+                            <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size"
+                                class="w-4 h-4 text-yellow-500 @if ($item->size == 'G') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
+                            <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
+                        </div>
+                    </li>
+                    
+                    <li class="w-full dark:border-gray-600">
+                        <div class="flex items-center ps-3">
+                            <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size"
+                                class="w-4 h-4 text-yellow-500 @if ($item->size == 'GG') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
+                            <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
+                        </div>
+                    </li>
                         <li class="w-28 h- border-b  sm:border-b-0">
                           <div >
                             <x-mary-button type="submit" 
-                            class="btn btn-round border-none  relative w-20 text-sm" 
+                            class="btn-md border-none  relative w-10 ml-2 text-sm" 
                             x-bind:disabled="loading">
               
                         <span x-show="!loading" class="text-sm">
@@ -233,9 +238,9 @@
                           
                           
                         </span>
-                        <span class="w-full"  x-show="loading"><x-mary-loading class="absolute  top-[11px] left-[5px]"/></span>
+                        <span class="w-full"  x-show="loading"><x-mary-loading class="absolute  top-[11px] left-[6px]"/></span>
                      {{-- submit form --}}
-                      </x-mary-button>
+                      </x-mary-button >
                           </div>
                       </li>
                     </ul>
