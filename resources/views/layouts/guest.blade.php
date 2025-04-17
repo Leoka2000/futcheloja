@@ -48,7 +48,7 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 800); // Artificial delay of 800ms
+                }, 300); // Artificial delay of 800ms
             ">
              <span x-show="!loading">
                  <x-mary-button label="" icon="o-shopping-cart"
@@ -73,7 +73,7 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 800); // Artificial delay of 800ms
+                }, 300); // Artificial delay of 800ms
             ">
              <span x-show="!loading">
                  <x-mary-button label="" icon="o-user"
@@ -106,7 +106,7 @@
                 loading = true;
                 setTimeout(() => {
                     window.location.href = $el.getAttribute('href');
-                }, 800); // Artificial delay of 800ms
+                }, 300); // Artificial delay of 800ms
             ">
              <span x-show="!loading">
                  <x-mary-button label="Minhas compras" icon="o-list-bullet"
@@ -130,11 +130,11 @@
                loading = true;
                setTimeout(() => {
                    window.location.href = $el.getAttribute('href');
-               }, 800); // Artificial delay of 800ms
+               }, 300); // Artificial delay of 800ms
            ">
                <span x-show="!loading">
                    <x-mary-button label="Camisas" icon="o-shopping-bag"
-                                  class="lg:w-64 lg:btn-outline shadow-lg btn-warning"
+                                  class="lg:w-64 lg:btn-warning shadow-lg btn-warning"
                                   responsive />
                </span>
                <span x-show="loading">

@@ -102,7 +102,7 @@
        ">
            <span x-show="!loading">
                <x-mary-button label="Camisas" icon="o-shopping-bag"
-                              class="lg:w-64 lg:btn-outline shadow-lg btn-warning"
+                              class="lg:w-64 lg:btn-warning shadow-lg btn-warning"
                               responsive />
            </span>
            <span x-show="loading">

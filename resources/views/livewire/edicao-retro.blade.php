@@ -1,6 +1,6 @@
 <section class="py-20 relative isolate overflow-x-hidden overflow-y-hidden bg-white dark:bg-inherit md:px-0">
   <h3 class="text-2xl mb-10 mx-4 font-bold text-left text-gray-700 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center flex items-center gap-2">
-      Últimos Lançamentos
+    Edição retrô
       <span class="inline-flex items-center mx-1 justify-center rounded-md bg-green-50 dark:bg-green-200 px-3 py-2 text-xs font-medium text-green-700 ring-1 ring-green-600/20 dark:ring-green-500 ring-inset">
           Frete grátis em todo Brasil
       </span>
@@ -25,7 +25,11 @@
           @forelse($products as $product)
               <swiper-slide class="mb-10">
                   <!-- Card Container -->
-                  <div class="xl:h-full h-auto flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                  <div class="xl:h-full relative h-auto flex flex-col  rounded-lg  dark:bg-gray-800 bg-gray-50 text-sm  shadow-md">
+                  
+                    <span class="inline-flex items-start gap-1 top-2 z-10 left-2 absolute rounded-md bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-400 dark:ring-yellow-600 ring-inset"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mt-[2px]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                    </svg> 21%</span>
                       @php
                           $imageArray = is_string($product->image) ? json_decode($product->image, true) : $product->image;
                           $firstImage = !empty($imageArray) && is_array($imageArray) ? $imageArray[0] : 'default.jpg';
@@ -39,7 +43,12 @@
                               loading="lazy"
                               id="lazyImage-{{ $product->id }}"
                           />
-
+                          <span 
+                          class="inline-flex  z-10 right-2 absolute bottom-2 items-start rounded-md text-start bg-green-100 px-2 py-1 text-xs gap-1 font-medium dark:text-green-500 text-green-600 ring-1 ring-green-600/20 ring-inset"
+                      >  
+                          <x-mary-icon name="o-truck" class="w-4 h-4" /> 
+                          <span >Frete grátis</span>
+                      </span>
                           <!-- Placeholder -->
                           <div 
                               class="absolute top-0 left-0 w-full h-full flex justify-center items-center rounded-t-md bg-white dark:bg-gray-800 transition-opacity duration-300"

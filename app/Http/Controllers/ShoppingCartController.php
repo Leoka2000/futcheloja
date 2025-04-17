@@ -79,7 +79,8 @@ class ShoppingCartController extends Controller
     public function index(Request $request)
     {
         // Only retrieve cart items for the authenticated user
-        $cartItems = ShoppingCart::where('user_id', Auth::id())->with(['user', 'product'])->get();
+        $cartItems = ShoppingCart::where('user_id', Auth::id())->get();
+
 
         // TA DANDO ERRO NA BASE DE DADOS, ESTA PASSANDO NUMEROS AO INVES DO REAL NOME DO ESTADO, DESBUGAR DPS
         $brazilStates = [
