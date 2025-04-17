@@ -18,7 +18,7 @@ Route::get('/cart/debug/{id}', [ShoppingCartController::class, 'debugImage'])->n
 Route::delete('/cart/remove/{productId}', [ShoppingCartController::class, 'removeItemFromCart'])->name('cart.remove');
 Route::post('/cart/increase/{productId}', [ShoppingCartController::class, 'increaseCartQuantity'])->name('cart.increase');
 Route::post('/cart/decrease/{productId}', [ShoppingCartController::class, 'decreaseCartQuantity'])->name('cart.decrease');
-Route::put('/cart/update-size/{productId}', [ShoppingCartController::class, 'updateSize'])->name('cart.updateSize');
+Route::put('/cart/update-size/{cartId}', [ShoppingCartController::class, 'updateSize'])->name('cart.updateSize');
 Route::post('/mark-as-paid', [ShoppingCartController::class, 'markAsPaid'])->name('markAsPaid');
 //checkout method h ere(checkoutfunction)
 Route::get('/checkout', [ShoppingCartController::class, 'checkout'])->name('checkout');

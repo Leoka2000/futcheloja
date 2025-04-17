@@ -18,6 +18,42 @@
 
   <!-- Styles -->
   @livewireStyles
+  <style>
+    /* Custom radio button styles */
+    .custom-radio {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid gray;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    /* Checked state style */
+    .custom-radio:checked::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 10px;
+        height: 10px;
+        background-color: yellow;
+        border-radius: 50%;
+    }
+
+    /* Dark mode styles */
+    .dark .custom-radio {
+        border-color: #6b7280;
+    }
+
+    .dark .custom-radio:checked::before {
+        background-color: #fbbf24; /* yellow-400 */
+    }
+  </style>x
 </head>
 
 
@@ -111,8 +147,15 @@
                       <p class="text-base font-bold text-gray-900 dark:text-white">R${{ number_format($item->product->price * $item->quantity, 2) }}</p>
                     </div>
                   </div>
+                  {{-- contaiber de tudo --}}
+                  @if($item->size)
+                  <div class="text-sm text-gray-600 dark:text-gray-400">
+                      Tamanho selecionado: 
+                      <span class="font-medium text-yellow-500 dark:text-yellow-400">{{ $item->size }}</span>
+                  </div>
+              @endif
                     <div class="absolute -top-2 sm:top-2 right-2 ">
-                  <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
+                  <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" >
                     @csrf
                     @method('DELETE')
                     <a
@@ -142,42 +185,44 @@
                     <div class="flex items-center gap-4">
                      
                       <form x-data="{ loading: false }"
-                      x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
-                      action="{{ route('cart.updateSize', ['productId' => $item->product_id]) }}" 
-                      method="POST" 
-                      class="w-full">
+    x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
+    action="{{ route('cart.updateSize', ['cartId' => $item->id]) }}" 
+    method="POST" 
+    class="w-full">
                     @csrf
                     @method('PUT')   
                     <input type="hidden" name="product_id" value="{{ $item->product_id }}">
                     <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 mb-10 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center ps-3">
-                                <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size"  class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'P' ? 'checked' : '' }}>
+                                <input id="size-p-{{ $item->id }}" type="radio" value="P" name="size"  class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                 <label for="size-p-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">P</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center ps-3">
-                                <input id="size-m-{{ $item->id }}" type="radio" value="M" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'M' ? 'checked' : '' }}>
+                                <input id="size-m-{{ $item->id }}" type="radio"  value="M" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
                                 <label for="size-m-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center ps-3">
-                                <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'G' ? 'checked' : '' }}>
+                                <input id="size-g-{{ $item->id }}" type="radio" value="G" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
                                 <label for="size-g-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">G</label>
                             </div>
                         </li>
+                    
+
                         <li class="w-full dark:border-gray-600">
                             <div class="flex items-center ps-3">
-                                <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" {{ $item->size == 'GG' ? 'checked' : '' }}>
+                                <input id="size-gg-{{ $item->id }}" type="radio" value="GG" name="size"   class="w-4 h-4 text-yellow-500 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
                                 <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
                             </div>
                         </li>
                         <li class="w-28 h- border-b  sm:border-b-0">
                           <div >
                             <x-mary-button type="submit" 
-                            class="btn btn-round border-none  relative w-10 text-sm" 
+                            class="btn btn-round border-none  relative w-20 text-sm" 
                             x-bind:disabled="loading">
               
                         <span x-show="!loading" class="text-sm">
@@ -337,4 +382,7 @@
   {{-- TOAST area --}}
   <x-mary-toast />
   @livewireScripts
+
+
+  
 </body>
