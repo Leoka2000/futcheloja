@@ -50,7 +50,7 @@
               $productImages = is_array($item->product->image) ? $item->product->image : [];
               $firstImage = !empty($productImages) ? $productImages[0] : 'default-image.png'; // Provide a fallback image
               @endphp
-              <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+              <div class="rounded-lg border border-gray-200 relative bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
                 <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                   <a href="#" class="shrink-0 md:order-1">
                     <img class="h-24 w-24" src="{{ Storage::url($firstImage) }}" alt="{{ $item->product->name }}" />
@@ -107,35 +107,35 @@
                     </div>
                     
                     <div class="text-end md:order-4 md:w-32">
-                      <div class="absolute top-3 right-3"> 
-                       <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
-                        @csrf
-                        @method('DELETE')
-                        <a
-                          type="submit"
-                          class=""
-                          :disabled="loading"
-                          @click.prevent="
-              loading = true;
-              setTimeout(() => {
-                  $el.closest('form').submit();
-              }, 300);
-          "> <span x-show="!loading">
-                            <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
-                            </x-mary-button>
-                          </span>
-                          <span x-show="loading">
-                            <x-mary-button type="submit" class="btn-sm btn-circle relative text-red-500 dark:text-red-400 inline-flex ">
-                              <x-mary-loading class="dark:text-gray-500 text-gray-400" />
-                            </x-mary-button>
-                          </span>
-                        </a>
-                      </form>
-                    </div>
+                     
                       <p class="text-base font-bold text-gray-900 dark:text-white">R${{ number_format($item->product->price * $item->quantity, 2) }}</p>
                     </div>
                   </div>
-
+                    <div class="absolute -top-2 sm:top-2 right-2 ">
+                  <form action="{{ route('cart.remove', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }" class=>
+                    @csrf
+                    @method('DELETE')
+                    <a
+                      type="submit"
+                      class=""
+                      :disabled="loading"
+                      @click.prevent="
+          loading = true;
+          setTimeout(() => {
+              $el.closest('form').submit();
+          }, 300);
+      "> <span x-show="!loading">
+                        <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
+                        </x-mary-button>
+                      </span>
+                      <span x-show="loading">
+                        <x-mary-button type="submit" class="btn-sm btn-circle relative text-red-500 dark:text-red-400 inline-flex ">
+                          <x-mary-loading class="dark:text-gray-500 text-gray-400" />
+                        </x-mary-button>
+                      </span>
+                    </a>
+                  </form>
+                </div>
                   <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                     <a href="#" class="text-base font-medium text-gray-900 hover:underline dark:text-white">{{ $item->product->name }}</a>
 
@@ -174,13 +174,20 @@
                                 <label for="size-gg-{{ $item->id }}" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">GG</label>
                             </div>
                         </li>
-                        <li class="w-28 border-b  sm:border-b-0">
+                        <li class="w-28 h- border-b  sm:border-b-0">
                           <div >
                             <x-mary-button type="submit" 
-                            class="btn btn-warning btn-outline relative w-full text-sm" 
+                            class="btn btn-round border-none  relative w-10 text-sm" 
                             x-bind:disabled="loading">
               
-                        <span x-show="!loading">Salvar</span>
+                        <span x-show="!loading" class="text-sm">
+                         
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                          </svg>
+                          
+                          
+                        </span>
                         <span class="w-full"  x-show="loading"><x-mary-loading class="absolute  top-[11px] left-[5px]"/></span>
                      
                       </x-mary-button>
