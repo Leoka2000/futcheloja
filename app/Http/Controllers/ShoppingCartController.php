@@ -25,6 +25,7 @@ class ShoppingCartController extends Controller
             ->where('user_id', Auth::id())
             ->first();
 
+        //lil error catch u know
         if (!$cartItem) {
             return redirect()->back()->with('error', [
                 'title' => 'Item Not Found',
@@ -34,7 +35,7 @@ class ShoppingCartController extends Controller
             ]);
         }
 
-        // Update the size
+        // Update the size se P M G GG FORAM SELECIONADOS
         $cartItem->size = $validated['size'];
         $cartItem->save();
 

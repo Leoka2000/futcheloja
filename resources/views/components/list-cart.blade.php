@@ -58,7 +58,7 @@
                   </a>
                   <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                   <div class="flex items-center justify-between md:order-3 md:justify-end">
-                    <div class="flex items-center">
+                    <div class="flex ml- items-center">
                       <form action="{{ route('cart.decrease', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
                         @csrf
                         @method('POST')
@@ -70,17 +70,17 @@
               loading = true;
               setTimeout(() => {
                   $el.closest('form').submit();
-              }, 500);
+              }, 200);
           ">
                           <span x-show="!loading">
                             <x-mary-button icon="o-minus" class="btn-circle text-red-500 dark:red-400 btn-sm" />
                           </span>
                           <span x-show="loading">
-                            <x-mary-button class="btn-circle relative text-green-500 dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
+                            <x-mary-button class="btn-circle relative text-green-500  dark:green-400 btn-sm"><x-mary-loading class="dark:text-gray-500 text-gray-500" /> </x-mary-button>
                           </span>
                         </a>
                       </form>
-                      <x-mary-input style="width: 50px!important;" readonly type="text" id="counter-input-{{ $item->id }}" data-input-counter class=" btn-sm shrink-0 border-0 bg-transparent mx-2 text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="{{ $item->quantity }}" />
+                      <x-mary-input style="width:50px!important;" readonly type="text" id="counter-input-{{ $item->id }}" data-input-counter class=" btn-sm shrink-0 border-0 bg-transparent mx-2 text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0  dark:text-white" placeholder="" value="{{ $item->quantity }}" />
                       <form action="{{ route('cart.increase', ['productId' => $item->product_id]) }}" method="POST" x-data="{ loading: false }">
                         @csrf
                         @method('POST')
@@ -92,7 +92,7 @@
               loading = true;
               setTimeout(() => {
                   $el.closest('form').submit();
-              }, 300);
+              }, 200);
           ">
                           <span x-show="!loading">
                             <x-mary-button icon="o-plus" class="btn-circle text-green-500 dark:green-400 btn-sm" />
@@ -123,7 +123,7 @@
           loading = true;
           setTimeout(() => {
               $el.closest('form').submit();
-          }, 300);
+          }, 200);
       "> <span x-show="!loading">
                         <x-mary-button type="submit" icon="o-trash" class="btn-sm btn-circle  text-red-500 dark:red-400 inline-flex  ">
                         </x-mary-button>
@@ -182,14 +182,14 @@
               
                         <span x-show="!loading" class="text-sm">
                          
-                          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                           </svg>
                           
                           
                         </span>
                         <span class="w-full"  x-show="loading"><x-mary-loading class="absolute  top-[11px] left-[5px]"/></span>
-                     
+                     {{-- submit form --}}
                       </x-mary-button>
                           </div>
                       </li>
