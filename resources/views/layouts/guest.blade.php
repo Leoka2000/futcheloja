@@ -119,10 +119,10 @@
            ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="lg:w-64 lg:btn-warning btn-outline shadow-lg btn-warning" responsive />
+                        class="lg:w-64 lg:btn-warning shadow-sm btn-warning" responsive />
                 </span>
                 <span x-show="loading">
-                    <x-mary-button class="lg:w-64 lg:btn-outline shadow-lg btn-warning relative">
+                    <x-mary-button class="lg:w-64 lg:btn-outline shadow-sm btn-warning relative">
                         <x-mary-loading class="dark:text-gray-500 text-gray-500" />
                     </x-mary-button>
                 </span>

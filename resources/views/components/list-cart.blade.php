@@ -54,7 +54,7 @@
             background-color: #fbbf24;
             /* yellow-400 */
         }
-    </style>x
+    </style>
 </head>
 
 
@@ -109,7 +109,7 @@
               loading = true;
               setTimeout(() => {
                   $el.closest('form').submit();
-              }, 200);
+              }, 1000);
           ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-minus"
@@ -135,7 +135,7 @@
               loading = true;
               setTimeout(() => {
                   $el.closest('form').submit();
-              }, 200);
+              }, 1000);
           ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-plus"

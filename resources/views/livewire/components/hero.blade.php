@@ -35,11 +35,10 @@
                 animation: blurMove 8s infinite ease-in-out;
             }
         </style>
-        <div class="items-center max-w-6xl px-8 mx-auto xl:px-5">
+        <div class="items-center max-w-[76rem] px-8 mx-auto xl:px-5">
             <div class="flex flex-wrap items-center sm:-mx-3">
                 <div class="w-full md:w-1/2 md:px-3">
-                    <div
-                        class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                    <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 ">
                         <h1
                             class="text-4xl font-extrabold tracking-tight dark:text-gray-200 text-gray-800 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
                             <div class="flex justify-start items-center gap-4"><span
@@ -52,19 +51,6 @@
                         <p
                             class="mx-auto text-base dark:text-gray-200 text-gray-900 sm:max-w-md lg:text-xl md:max-w-3xl">
                             Para ter acesso ao catálogo, clique no botão abaixo e confira nossas peças esclusivas </p>
-                        {{-- <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                            <a @click="
-        loading = true;
-        setTimeout(() => {
-            window.location.href = '{{ route('components.shopping_cart_component_index') }}';
-        }, 500);" class="btn w-full customcssbtn btn-warning  mt-5 flex items-center justify-center"
-                                :disabled="loading">
-                                <span x-show="!loading">Comprar agora</span>
-                                <span x-show="loading">
-                                    <x-mary-loading class="text-gray-700 dark:text-gray-400 " x-show="loading" />
-                                </span>
-                            </a>
-                        </div> --}}
                     </div>
                 </div>
 
