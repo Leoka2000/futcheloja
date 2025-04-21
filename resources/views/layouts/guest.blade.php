@@ -64,7 +64,7 @@
             <a href="{{ route('profile.show') }}" class="relative" x-data="{ loading: false }" @click.prevent="
                 loading = true;
                 setTimeout(() => {
-                    window.l    ocation.href = $el.getAttribute('href');
+                    window.location.href = $el.getAttribute('href');
                 }, 200); // Artificial delay of 800ms
             ">
                 <span x-show="!loading">
