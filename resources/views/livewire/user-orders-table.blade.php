@@ -53,7 +53,7 @@
         <x-mary-icon name="o-x-mark"
             class="w-12 h-12 p-2 text-gray-400 bg-gray-200 rounded-full shadow dark:bg-gray-700 darktext-gray-500" />
         <p class="text-center text-gray-900 dark:text-white">Não há compras </p>
-        <a href="{{ route('components/list-cart') }}" x-data="{ loading: false }"
+        <a href="{{ route('components.shopping_cart_component_index') }}" x-data="{ loading: false }"
             @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 250)">
             <template x-if="!loading">
                 <x-mary-button spinner class="w-full mt-2 btn-warning" icon="o-shopping-cart">
