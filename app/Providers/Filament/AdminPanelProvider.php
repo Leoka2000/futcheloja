@@ -69,8 +69,7 @@ class AdminPanelProvider extends PanelProvider
         // Add CSP meta tag as additional protection
         FilamentView::registerRenderHook(
             'head.end',
-            fn(): string => '<!-- Force HTTPS for resources -->' . "\n" .
-                '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">'
+            fn(): string => '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src \'self\' https:; connect-src \'self\' https:; img-src \'self\' https: data:; script-src \'self\' https: \'unsafe-inline\'; style-src \'self\' https: \'unsafe-inline\'">'
         );
     }
 }

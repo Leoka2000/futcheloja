@@ -79,6 +79,10 @@ class ProductResource extends Resource
                     ->label('Product Images')
                     ->multiple()
                     ->image()
+                    ->maxSize(10240) // 10 MB in kilobytes
+                    ->columnSpanFull()
+                    ->visibility('public') // If using S3 or similar
+                    ->preserveFilenames() // Helps with some permission issues
                     ->columnSpanFull(),
             ]);
     }
