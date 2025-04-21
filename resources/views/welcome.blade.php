@@ -12,7 +12,8 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Styles / Scripts -->
-
+    {{-- line for not bugging webpacks --}}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
@@ -22,19 +23,20 @@
     }
 </style>
 
-<body class="font-sans antialiased relative">
-<x-mary-nav sticky full-width class="shadow-sm">
+<body class="relative font-sans antialiased">
+    <x-mary-nav sticky full-width class="shadow-sm">
         <x-slot:brand>
             {{-- Drawer toggle for "main-drawer" --}}
-            <label for="main-drawer" class="lg:hidden mr-3">
+            <label for="main-drawer" class="mr-3 lg:hidden">
                 <x-mary-icon name="o-bars-3" class="cursor-pointer" />
             </label>
-            <img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}"
-                alt="logo" title="logo" />
+            <img class='object-cover w-12 h-12 rounded-md' src="{{ asset('logo.png') }}" alt="logo" title="logo" />
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="" icon="o-shopping-cart" link="#" class="btn relative" responsive><livewire:shopping-cart-icon /></x-mary-button>
+            <x-mary-button label="" icon="o-shopping-cart" link="#" class="relative btn" responsive>
+                <livewire:shopping-cart-icon />
+            </x-mary-button>
             <x-mary-button label="" icon="o-user" link="{{route('profile.show')}}" class="btn-ghost btn" responsive />
             <x-mary-theme-toggle class="btn btn-ghost btn-square" responsive />
         </x-slot:actions>
@@ -49,9 +51,12 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="#" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" link="{{route('profile.show')}}" class="btn-ghost btn-sm" responsive />
-            <x-mary-button label="Rastrear pedido" icon="o-map-pin" link="{{route('profile.show')}}" class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="#" class="btn-ghost btn-sm"
+                responsive />
+            <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" link="{{route('profile.show')}}"
+                class="btn-ghost btn-sm" responsive />
+            <x-mary-button label="Rastrear pedido" icon="o-map-pin" link="{{route('profile.show')}}"
+                class="btn-ghost btn-sm" responsive />
         </x-slot:actions>
     </x-mary-nav>
     {{-- The main content with `full-width` --}}
@@ -59,11 +64,11 @@
 
         {{-- This is a sidebar that works also as a drawer on small screens --}}
         {{-- Notice the `main-drawer` reference here --}}
-    
+
 
         {{-- The `$slot` goes here --}}
         <x-slot:content>
-            <div class="p-6 lg:p-8 dark:bg-inherit bg-gray-50 custombox rounded">
+            <div class="p-6 rounded lg:p-8 dark:bg-inherit bg-gray-50 custombox">
                 <livewire:shopping-cart-component />
             </div>
         </x-slot:content>
