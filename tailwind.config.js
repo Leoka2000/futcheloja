@@ -7,6 +7,7 @@ export default {
   darkMode: "class",
   content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+
     "./vendor/laravel/jetstream/**/*.blade.php",
     "./storage/framework/views/*.php",
     "./resources/views/**/*.blade.php",
@@ -22,15 +23,4 @@ export default {
   },
 
   plugins: [forms, typography, require("daisyui")],
-
-  // Add Filament-specific configuration with the meta tag
-  filament: {
-    meta: [
-      {
-        name: "Content-Security-Policy",
-        content: "upgrade-insecure-requests",
-        "http-equiv": true,
-      },
-    ],
-  },
 };

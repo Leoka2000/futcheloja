@@ -61,10 +61,10 @@ new class extends Component {
     }
 };
 
-
 ?>
 
 <div x-data="{ searchTerm: @entangle('searchTerm') }">
+
     <style>
         .pb-5>div>div>div {
             font-size: 1rem;
@@ -172,7 +172,7 @@ new class extends Component {
                 @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                 <input class="join-item btn btn-square" type="radio" name="options" aria-label="{{ $page }}"
                     wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page)
-                checked="checked"
+                checked="checked" class="btn-warning"
                 @endif />
                 @endforeach
             </div>
