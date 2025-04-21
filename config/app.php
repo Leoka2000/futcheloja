@@ -55,6 +55,10 @@ return [
     // 'url' => env('APP_URL', 'http://futche.fly.dev'),
     'url' => env('APP_URL', 'http://localhost'),
 
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -105,6 +109,7 @@ return [
             explode(',', env('APP_PREVIOUS_KEYS', ''))
         ),
     ],
+
 
     /*
     |--------------------------------------------------------------------------
