@@ -45,6 +45,7 @@ return [
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
+            'visibility' => 'public',
         ],
 
         's3' => [

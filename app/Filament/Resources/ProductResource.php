@@ -78,6 +78,7 @@ class ProductResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Product Images')
                     ->multiple()
+                    ->disk('public')
                     ->image()
                     ->maxSize(10240) // 10 MB in kilobytes
                     ->columnSpanFull()
