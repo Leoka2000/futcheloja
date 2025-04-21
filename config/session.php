@@ -156,7 +156,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => env('SESSION_DOMAIN'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,9 +169,8 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE', true),
-    'http_only' => true,
-    'same_site' => 'lax',
+    'secure' => env('SESSION_SECURE_COOKIE'),
+
     /*
     |--------------------------------------------------------------------------
     | HTTP Access Only
@@ -200,8 +199,7 @@ return [
     |
     */
 
-    'same_site' => 'none',
-    'secure' => env('SESSION_SECURE_COOKIE', true),
+    'same_site' => env('SESSION_SAME_SITE', 'lax'),
 
     /*
     |--------------------------------------------------------------------------
