@@ -108,7 +108,7 @@
 
                         @endphp
                         <div
-                            class="relative p-4 border-gray-100 rounded-lg shadow-lg bg-whiteborder dark:border-gray-800 md:p-6">
+                            class="relative p-4 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 md:p-6">
                             <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                                 <a href="#" class="shrink-0 md:order-1">
                                     <img class="w-24 h-24" src="{{ Storage::url($firstImage) }}"

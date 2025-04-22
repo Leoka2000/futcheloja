@@ -21,7 +21,7 @@
                     <livewire:shopping-cart-icon />
                 </x-mary-button>
             </span>
-            <span x-show="loading">
+            <span x-show="loading" x-cloak>
                 <x-mary-button class="relative btn-sm lg:btn">
                     <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                 </x-mary-button>
