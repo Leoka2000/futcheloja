@@ -42,5 +42,8 @@
         <x-mary-button label="Termos de Serviço" icon="o-information-circle" link="{{ route('policy')}}"
             class="btn-ghost btn-sm" responsive />
 
+
+
     </div>
+
 </section>
