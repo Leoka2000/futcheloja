@@ -20,33 +20,55 @@ class BrasileiraoLancamentosSeeder extends Seeder
         // Get all image files from the directory
         $imageFiles = glob($localImagePath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-        foreach ($imageFiles as $imageFile) {
-            // Generate a unique filename
-            $extension = pathinfo($imageFile, PATHINFO_EXTENSION);
-            $filename = Str::random(40) . '.' . $extension;
+        // Use transaction for safety
+        DB::transaction(function () use ($imageFiles) {
+            foreach ($imageFiles as $imageFile) {
+                try {
+                    // Generate a unique filename
+                    $extension = pathinfo($imageFile, PATHINFO_EXTENSION);
+                    $filename = Str::random(40) . '.' . $extension;
 
-            // Read the file contents
-            $fileContents = file_get_contents($imageFile);
+                    // Store the file in Laravel's storage
+                    $path = Storage::putFileAs('products', $imageFile, $filename);
 
-            // Store the file in Laravel's storage (will be uploaded to Railway's storage)
-            $path = Storage::putFileAs('products', $imageFile, $filename);
+                    // Process product name
+                    $productName = pathinfo($imageFile, PATHINFO_FILENAME);
+                    $productName = ucwords(str_replace('_', ' ', $productName));
 
-            // Extract product name from filename (optional)
-            $productName = pathinfo($imageFile, PATHINFO_FILENAME);
-            $productName = str_replace('_', ' ', $productName); // Replace underscores with spaces
-            $productName = ucwords($productName); // Capitalize words
+                    // Check if product already exists
+                    $existingProduct = DB::table('products')
+                        ->where('name', $productName)
+                        ->where('category', 'brasileirao_lancamentos')
+                        ->first();
 
-            // Insert into database
-            DB::table('products')->insert([
-                'category' => 'brasileirao_lancamentos',
-                'name' => $productName,
-                'size' => 'M', // Default size or you can randomize
-                'description' => 'Camisa oficial do time ' . $productName . ' - Temporada 2024',
-                'price' => rand(20000, 35000) / 100, // Random price between 200.00 and 350.00
-                'image' => $path,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+                    if (!$existingProduct) {
+                        // Insert into database if doesn't exist
+                        DB::table('products')->insert([
+                            'category' => 'brasileirao_lancamentos',
+                            'name' => $productName,
+                            'size' => 'M',
+                            'description' => 'Camisa oficial do time ' . $productName . ' - Temporada 2024',
+                            'price' => rand(20000, 35000) / 100,
+                            'image' => $path,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                    } else {
+                        // Update existing record if needed
+                        DB::table('products')
+                            ->where('id', $existingProduct->id)
+                            ->update([
+                                'image' => $path,
+                                'price' => rand(20000, 35000) / 100,
+                                'updated_at' => now(),
+                            ]);
+                    }
+                } catch (\Exception $e) {
+                    // Log error and continue with next image
+                    logger()->error('Error processing image: ' . $imageFile, ['error' => $e->getMessage()]);
+                    continue;
+                }
+            }
+        });
     }
 }
