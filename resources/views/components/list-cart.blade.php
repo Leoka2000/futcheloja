@@ -19,43 +19,8 @@
 
     <!-- Styles -->
     @livewireStyles
-    <style>
-        /* Custom radio button styles */
-        .custom-radio {
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid gray;
-            border-radius: 50%;
-            outline: none;
-            cursor: pointer;
-            position: relative;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
 
-        /* Checked state style */
-        .custom-radio:checked::before {
-            content: "";
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 10px;
-            height: 10px;
-            background-color: yellow;
-            border-radius: 50%;
-        }
 
-        /* Dark mode styles */
-        .dark .custom-radio {
-            border-color: #6b7280;
-        }
-
-        .dark .custom-radio:checked::before {
-            background-color: #fbbf24;
-            /* yellow-400 */
-        }
-    </style>
 </head>
 
 
@@ -105,7 +70,6 @@
                         @php
                         $productImages = is_array($item->product->image) ? $item->product->image : [];
                         $firstImage = !empty($productImages) ? $productImages[0] : 'default-image.png'; // fallbackimage
-
                         @endphp
                         <div
                             class="relative p-4 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 md:p-6">
@@ -113,7 +77,6 @@
                                 <a href="#" class="shrink-0 md:order-1">
                                     <img class="w-24 h-24" src="{{ Storage::url($firstImage) }}"
                                         alt="{{ $item->product->name }}" />
-
                                 </a>
                                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
                                 <div class="flex items-center justify-between md:order-3 md:justify-end">
@@ -123,11 +86,11 @@
                                             @csrf
                                             @method('POST')
                                             <a type="submit" class="" :disabled="loading" @click.prevent="
-              loading = true;
-              setTimeout(() => {
-                  $el.closest('form').submit();
-              }, 1000);
-          ">
+                          loading = true;
+                          setTimeout(() => {
+                              $el.closest('form').submit();
+                          }, 1000);
+                      ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-minus"
                                                         class="text-red-500 btn-circle dark:red-400 btn-sm" />
@@ -149,11 +112,11 @@
                                             @csrf
                                             @method('POST')
                                             <a type="submit" class="" :disabled="loading" @click.prevent="
-              loading = true;
-              setTimeout(() => {
-                  $el.closest('form').submit();
-              }, 1000);
-          ">
+                          loading = true;
+                          setTimeout(() => {
+                              $el.closest('form').submit();
+                          }, 1000);
+                      ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-plus"
                                                         class="text-green-500 btn-circle dark:green-400 btn-sm" />
@@ -166,12 +129,9 @@
                                                 </span>
                                             </a>
                                         </form>
-
-
                                     </div>
 
                                     <div class="text-end md:order-4 md:w-32">
-
                                         <p class="text-base font-bold text-gray-900 dark:text-white">R${{
                                             number_format($item->product->price * $item->quantity, 2) }}</p>
                                     </div>
@@ -179,7 +139,7 @@
                                 {{-- contaiber de tudo --}}
                                 @if($item->size)
                                 <div class="text-sm text-gray-600 dark:text-gray-400">
-                                    Tamanho selecionado:
+
                                     <span class="font-medium text-yellow-500 dark:text-yellow-400">{{ $item->size
                                         }}</span>
                                 </div>
@@ -190,11 +150,11 @@
                                         @csrf
                                         @method('DELETE')
                                         <a type="submit" class="" :disabled="loading" @click.prevent="
-          loading = true;
-          setTimeout(() => {
-              $el.closest('form').submit();
-          }, 200);
-      "> <span x-show="!loading">
+                  loading = true;
+                  setTimeout(() => {
+                      $el.closest('form').submit();
+                  }, 200);
+              "> <span x-show="!loading">
                                                 <x-mary-button type="submit" icon="o-trash"
                                                     class="inline-flex text-red-500 btn-sm btn-circle dark:red-400 ">
                                                 </x-mary-button>
@@ -209,12 +169,9 @@
                                     </form>
                                 </div>
                                 <div class="flex-1 w-full min-w-0 space-y-4 md:order-2 md:max-w-md">
-                                    <a href="#"
-                                        class="text-base font-medium text-gray-900 hover:underline dark:text-white">{{
-                                        $item->product->name }}</a>
 
-                                    <div class="flex items-center gap-4">
 
+                                    <div class="flex items-center gap-4 mt-3">
                                         <form x-data="{ loading: false }"
                                             x-on:submit.prevent="loading = true; setTimeout(() => $el.submit(), 300)"
                                             action="{{ route('cart.updateSize', ['cartId' => $item->id]) }}"
@@ -222,77 +179,35 @@
                                             @csrf
                                             @method('PUT')
                                             <input type="hidden" name="product_id" value="{{ $item->product_id }}">
-                                            <ul
-                                                class="items-center w-full mb-10 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                                <li
-                                                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                                    <div class="flex items-center ps-3">
-                                                        <input id="size-p-{{ $item->id }}" type="radio" value="P"
-                                                            name="size"
-                                                            class="w-4 h-4 text-yellow-500 @if ($item->size == 'P') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
-                                                        <label for="size-p-{{ $item->id }}"
-                                                            class="w-full py-3 mr-2 text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">P</label>
-                                                    </div>
-                                                </li>
 
-                                                <li
-                                                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                                    <div class="flex items-center ps-3">
-                                                        <input id="size-m-{{ $item->id }}" type="radio" value="M"
-                                                            name="size"
-                                                            class="w-4 h-4 text-yellow-500 @if ($item->size == 'M') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
-                                                        <label for="size-m-{{ $item->id }}"
-                                                            class="w-full py-3 mr-2 text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">M</label>
-                                                    </div>
-                                                </li>
+                                            <div class="flex items-center gap-2 mb-4">
+                                                <x-mary-radio :options="[
+                                    ['id' => 'P', 'name' => 'P'],
+                                    ['id' => 'M', 'name' => 'M'],
+                                    ['id' => 'G', 'name' => 'G'],
+                                    ['id' => 'GG', 'name' => 'GG'],
+                                    ['id' => '2GG', 'name' => '2GG'],
+                                    ['id' => '3GG', 'name' => '3GG']
+                                ]" wire:model="size" name="size" option-value="id" option-label="name" color="warning"
+                                                    class="flex-1 w-full md:btn btn-sm " />
 
-                                                <li
-                                                    class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                                    <div class="flex items-center ps-3">
-                                                        <input id="size-g-{{ $item->id }}" type="radio" value="G"
-                                                            name="size"
-                                                            class="w-4 h-4 text-yellow-500 @if ($item->size == 'G') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
-                                                        <label for="size-g-{{ $item->id }}"
-                                                            class="w-full py-3 text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">G</label>
-                                                    </div>
-                                                </li>
-
-                                                <li class="w-full dark:border-gray-600">
-                                                    <div class="flex items-center ps-3">
-                                                        <input id="size-gg-{{ $item->id }}" type="radio" value="GG"
-                                                            name="size"
-                                                            class="w-4 h-4 text-yellow-500 @if ($item->size == 'GG') dark:bg-yellow-600 dark:border-yellow-500 bg-yellow-200 @else border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-500 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 @endif ">
-                                                        <label for="size-gg-{{ $item->id }}"
-                                                            class="w-full py-3 text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">GG</label>
-                                                    </div>
-                                                </li>
-                                                <li class="border-b w-28 h- sm:border-b-0">
-                                                    <div>
-                                                        <x-mary-button type="submit"
-                                                            class="relative w-5 ml-2 text-sm border-none btn-md"
-                                                            x-bind:disabled="loading">
-
-                                                            <span x-show="!loading" class="">
-
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="w-4 h-4 text-gray-800 dark:text-white"
-                                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                                    stroke="currentColor" class="size-6">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                                                </svg>
-
-
-                                                            </span>
-                                                            <span class="w-full" x-show="loading" x-cloak>
-                                                                <x-mary-loading
-                                                                    class="absolute  top-[11px] left-[6px]" />
-                                                            </span>
-                                                            {{-- submit form --}}
-                                                        </x-mary-button>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                                <x-mary-button type="submit"
+                                                    class="relative px-4 py-2 text-sm font-medium border-none md:btn btn-sm"
+                                                    x-bind:disabled="loading">
+                                                    <span x-show="!loading">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="w-4 h-4 text-gray-800 dark:text-white" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                                        </svg>
+                                                    </span>
+                                                    <span class="w-full" x-show="loading" x-cloak>
+                                                        <x-mary-loading class="absolute top-[11px] left-[6px]" />
+                                                    </span>
+                                                </x-mary-button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
