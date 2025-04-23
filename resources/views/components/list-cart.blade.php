@@ -261,15 +261,15 @@
                                 class="h-5 p-[4px] border border-gray-200 dark:border-gray-600  shadow-sm rounded-md ">
                         </div>
                         @if($cartItems->isEmpty())
-                        <a>
+                        {{-- <a>
                             <x-mary-button icon="o-credit-card" tooltip="Your cart is empty!" class="w-full mt-3">Pagar
                                 com cartão </x-mary-button>
-                        </a>
+                        </a> --}}
                         <div class="flex items-center justify-center gap-2">
-                            <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
+                            <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> </span>
                             <a title=""
                                 class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:no-underline dark:text-primary-500">
-                                Continue with pix
+                                Continue com pix
                                 <img src="{{asset('pix.png')}}" alt="Pix"
                                     class="border border-gray-200 rounded-md shadow-sm h-7 dark:border-gray-600 -p-36">
                             </a>
