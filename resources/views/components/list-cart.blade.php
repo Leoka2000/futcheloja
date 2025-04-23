@@ -346,7 +346,7 @@
                                                 class="flex flex-col-reverse gap-1 sm:flex-row sm:justify-end sm:space-x-2">
                                                 @if($cartItems->isEmpty())
                                                 <x-mary-alert
-                                                    title="Your cart is empty! Fill up you cart and then the payment buttons will appear"
+                                                    title="Seu carrinho está vazio! Encha o carrinho e então os botões de pagamento aparecerão."
                                                     class="alert-error" icon="o-exclamation-triangle" shadow />
                                                 @else
                                                 <x-mary-button @click="modalOpen=false" type="button" class="">Voltar
