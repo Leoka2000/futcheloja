@@ -118,10 +118,10 @@
        ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="text-gray-800 shadow-lg btn-sm lg:btn btn-warning" />
+                        class="text-gray-800 shadow-lg btn-sm md:btn btn-warning" />
                 </span>
                 <span x-show="loading" x-cloak>
-                    <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-warning btn-sm btn-warning">
+                    <x-mary-button class="relative shadow-lg btn lg:btn-warning btn-sm btn-warning">
                         <x-mary-loading class="text-sm text-gray-600 dark:text-gray-600" />
                     </x-mary-button>
                 </span>
