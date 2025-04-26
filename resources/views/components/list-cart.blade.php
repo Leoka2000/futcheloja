@@ -89,7 +89,7 @@
                           loading = true;
                           setTimeout(() => {
                               $el.closest('form').submit();
-                          }, 1000);
+                          }, 250);
                       ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-minus"
@@ -115,7 +115,7 @@
                           loading = true;
                           setTimeout(() => {
                               $el.closest('form').submit();
-                          }, 1000);
+                          }, 250);
                       ">
                                                 <span x-show="!loading">
                                                     <x-mary-button icon="o-plus"
@@ -139,8 +139,9 @@
                                 {{-- contaiber de tudo --}}
                                 @if($item->size)
                                 <div class="text-sm text-gray-600 dark:text-gray-400">
-
-                                    <span class="font-medium text-yellow-500 dark:text-yellow-400">{{ $item->size
+                                    Escolhido:
+                                    <span class="text-yellow-500 ont-bold f dark:text-yellow-400">{{
+                                        $item->size
                                         }}</span>
                                 </div>
                                 @endif
@@ -204,7 +205,7 @@
                                                         </svg>
                                                     </span>
                                                     <span class="w-full" x-show="loading" x-cloak>
-                                                        <x-mary-loading class="absolute top-[11px] left-[6px]" />
+                                                        <x-mary-loading class="absolute top-[6px] left-[5px]" />
                                                     </span>
                                                 </x-mary-button>
                                             </div>
@@ -221,7 +222,7 @@
                     @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
                 </div>
 
-                <div class="flex-1 max-w-4xl mx-auto mt-6 space-y-6 lg:mt-0 lg:w-full">
+                <div class="flex-1 max-w-4xl mx-auto mt-6 space-y-6 shadow-lg lg:mt-0 lg:w-full">
                     <div
                         class="p-4 space-y-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                         <p class="text-xl font-semibold text-gray-900 dark:text-white">Preço original</p>
@@ -274,9 +275,11 @@
                                     class="border border-gray-200 rounded-md shadow-sm h-7 dark:border-gray-600 -p-36">
                             </a>
                             @else
-                            <a href="{{route('checkout')}}">
-                                <x-mary-button icon="o-credit-card" type="submit" spinner="checkout"
-                                    class="w-full mt-3"> Pagar com cartão </x-mary-button>
+                            <a class="hover:cursor-not-allowed">
+                                <x-mary-button disabled icon="o-credit-card" type="submit" spinner="checkout"
+                                    class="w-full mt-3 text-xs pointer-events-none">
+                                    Pagar com cartão (não disponível no momento)
+                                </x-mary-button>
                             </a>
                             <div class="flex items-center justify-center gap-2">
                                 <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>

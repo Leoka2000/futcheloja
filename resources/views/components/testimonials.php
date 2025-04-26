@@ -1,5 +1,5 @@
 <section class="flex flex-wrap items-center justify-center px-4 py-16 bg-inherit dark:bg-inherit min-w-screen">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         <figure class="max-w-md mx-auto">
             <div class="flex items-center mb-4 text-yellow-300">
                 <svg class="w-5 h-5" fill="#FFD700" viewBox="0 0 22 20">

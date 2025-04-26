@@ -100,7 +100,8 @@
                                }, 250);
                            ">
                             <span x-show="!loading">
-                                <x-mary-button icon="o-shopping-bag" label="Ver mais" class="w-full btn" />
+                                <x-mary-button icon="o-shopping-bag" label="Ver mais"
+                                    class="w-full btn-success btn btn-soft" />
                             </span>
                             <span x-show="loading" x-cloak>
                                 <x-mary-button class="relative w-full btn">

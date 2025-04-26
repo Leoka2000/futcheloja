@@ -244,13 +244,13 @@ new class extends Component {
 
                 </x-slot:menu>
                 <div>
-                    <button x-data="{ loading: false }" x-bind:class="{'cursor-not-allowed opacity-50': loading}"
+                    <x-mary-button x-data="{ loading: false }" x-bind:class="{'cursor-not-allowed opacity-50': loading}"
                         x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                        class="w-full mt-5 btn " :disabled="loading">
-                        <x-mary-icon x-show="!loading" name="o-cursor-arrow-rays" class="w-5 md:w-6" />
+                        class="w-full mt-5 btn-success btn btn-soft">
+                        <x-mary-icon x-show=" !loading" name="o-cursor-arrow-rays" class="w-5 md:w-6" />
                         <span x-show="!loading">Detalhes</span>
                         <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" x-cloak />
-                    </button>
+                    </x-mary-button>
 
 
                 </div>
