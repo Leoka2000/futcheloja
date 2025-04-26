@@ -1,15 +1,15 @@
 <x-guest-layout>
     <style>
-        input,
-        select {
+        input:focus,
+        select:focus {
             outline: 1px solid oklch(var(--wa)) !important;
             outline-offset: 1px !important;
             box-shadow: none !important;
-            border-color: transparent !important;
+            border-color: #d1d5db !important;
         }
 
         div>.flex>.border-primary {
-            outline: 1px solid oklch(var(--wa)) !important;
+            outline: 1px solid yellow !important;
             outline-offset: 1px !important;
             box-shadow: none !important;
         }
@@ -38,13 +38,13 @@
 
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block w-full mt-1 text-gray-500 dark:text-gray-300" type="email" name="email"
-                    :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block w-full mt-1 text-gray-500 border border-gray-200 " type="email"
+                    name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Senha') }}" />
-                <x-input id="password" class="block w-full mt-1 text-gray-500 dark:text-gray-300" type="password"
+                <x-input id="password" class="block w-full mt-1 text-gray-500 border border-gray-200 " type="password"
                     name="password" required autocomplete="current-password" />
             </div>
 
@@ -64,7 +64,7 @@
                 @endif
 
                 <button id="loginButton" type="submit"
-                    class="ms-4 text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 inline-flex items-center">
+                    class="ms-4 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 inline-flex items-center">
                     {{ __('Entrar') }}
                 </button>
             </div>

@@ -6,9 +6,12 @@
         #remember_me:focus,
         #password_confirmation:focus {
             outline: 2px solid oklch(var(--wa)) !important;
-            outline-offset: 2px !important;
+            outline-offset: 1px !important;
             box-shadow: none !important;
-            border-color: transparent !important;
+            border-color: #d1d5db !important;
+
+
+
         }
     </style>
 
@@ -18,7 +21,7 @@
         </x-slot>
         <h1 class="mb-3 text-xl font-black text-gray-700 dark:text-gray-300">Registro</h1>
         <span class="inline-block mb-3 text-sm text-gray-900 dark:text-gray-300">Se já tem uma conta, <a
-                href="{{route('register')}}" class="text-yellow-600 underline cursor-pointer dark:text-yellow-400">faça
+                href="{{route('login')}}" class="text-yellow-600 underline cursor-pointer dark:text-yellow-400">faça
                 login aqui</a></span>
 
         <x-validation-errors class="mb-4" />
@@ -28,14 +31,14 @@
 
             <div>
                 <x-label for="name" value="{{ __('Nome') }}" />
-                <x-input id="name" class="block w-full mt-1 text-gray-600 dark:text-gray-300" type="text" name="name"
-                    :value="old('name')" required autofocus autocomplete="name" />
+                <x-input id="name" class="block w-full mt-1 text-gray-600 border border-gray-200 " type="text"
+                    name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block w-full mt-1 text-gray-600 dark:text-gray-300" type="email" name="email"
-                    :value="old('email')" required autocomplete="username" />
+                <x-input id="email" class="block w-full mt-1 text-gray-600 border border-gray-200 dark:text-gray-300"
+                    type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
             <div class="mt-4">
@@ -73,7 +76,7 @@
             <div class="flex items-center justify-end mt-4">
 
                 <button id="registerButton" type="submit"
-                    class="ms-4 text-white bg-yellow-600 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 inline-flex items-center">
+                    class="ms-4 text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:focus:ring-yellow-800 inline-flex items-center">
                     {{ __('Registrar') }}
                 </button>
             </div>
