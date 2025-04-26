@@ -60,7 +60,7 @@
                                 </template>
                                 <template x-if="loading">
                                     <x-mary-button class="w-full mt-2 btn-warning">
-                                        <x-mary-loading class="w-6 text-gray-800" />
+                                        <x-mary-loading class="w-6 text-gray-600" />
                                     </x-mary-button>
                                 </template>
                             </a>
@@ -74,8 +74,8 @@
                         <div
                             class="relative p-4 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 md:p-6">
                             <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-                                <a href="#" class="shrink-0 md:order-1">
-                                    <img class="w-24 h-24" src="{{ Storage::url($firstImage) }}"
+                                <a class="shrink-0 md:order-1">
+                                    <img class="w-24 h-24 rounded-md" src="{{ Storage::url($firstImage) }}"
                                         alt="{{ $item->product->name }}" />
                                 </a>
                                 <label for="counter-input-{{ $item->id }}" class="sr-only">Choose quantity:</label>
@@ -282,10 +282,10 @@
                                 </x-mary-button>
                             </a>
                             <div class="flex items-center justify-center gap-2">
-                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
+                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> Ou </span>
                                 <a title=""
                                     class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:no-underline dark:text-primary-500">
-                                    Continue with pix
+                                    Continue com pix
                                     <img src="{{asset('pix.png')}}" alt="Pix"
                                         class="border border-gray-200 rounded-md shadow-sm h-7 dark:border-gray-600 -p-36">
                                 </a>
@@ -369,7 +369,7 @@
 
 
                             <div class="flex items-center justify-center gap-2">
-                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
+                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> Ou </span>
                                 <a href="{{route('components.shopping_cart_component_index')}}" title=""
                                     class="inline-flex items-center gap-2 text-sm font-medium underline text-primary-700 hover:no-underline dark:text-primary-500">
                                     Continue Compando
