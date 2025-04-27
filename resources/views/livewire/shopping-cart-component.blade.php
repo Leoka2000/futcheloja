@@ -234,7 +234,7 @@ new class extends Component {
                 </x-slot:figure>
                 <div class="gap-1 mb-1">
                     <p class="text-sm font-semibold text-green-500 dark:text-green-600">R$ {{$product->price}} <span
-                            class="mt-1 text-xs text-gray-400 dark:text-gray-600 "> <del>R$ 159.99 <del></span></p>
+                            class="mt-1 text-xs text-gray-400 dark:text-gray-600 "> <del>R$ 299.99 <del></span></p>
                 </div>
                 <div class="flex items-center gap-1">
                     <p class="text-sm">Ou <strong>12x</strong> de <span

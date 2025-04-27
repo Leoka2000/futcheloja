@@ -81,7 +81,7 @@
                         <!-- Price -->
                         <div class="gap-1 mb-1">
                             <p class="text-sm font-semibold text-green-500 dark:text-green-600">R$ {{$product->price}}
-                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600"><del>R$ 159.99</del></span>
+                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600"><del>R$ 299.99</del></span>
                             </p>
                         </div>
 
