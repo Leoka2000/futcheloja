@@ -83,8 +83,7 @@
            }, 250); //delay q colokey
        ">
             <span x-show="!loading">
-                <x-mary-button label="Camisas" icon="o-shopping-bag"
-                    class="text-gray-800 shadow-sm btn-sm btn-warning" />
+                <x-mary-button label="Camisas" icon="o-shopping-bag" class="text-gray-800 shadow-sm btn btn-warning" />
             </span>
             <span x-show="loading" x-cloak>
                 <x-mary-button class="relative shadow-sm btn btn-sm">

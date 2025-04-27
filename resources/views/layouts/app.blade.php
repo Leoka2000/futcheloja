@@ -84,7 +84,7 @@
         loading = true;
         setTimeout(() => {
             window.location.href = $el.getAttribute('href');
-        }, 200); // Artificial delay of 800ms
+        }, 200);
     ">
                 <span x-show="!loading">
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
@@ -107,7 +107,7 @@
    ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="text-gray-800 shadow-sm btn-sm btn-warning" />
+                        class="text-gray-800 shadow-sm btn btn-warning" />
                 </span>
                 <span x-show="loading" x-cloak>
                     <x-mary-button class="relative shadow-sm btn btn-sm">
