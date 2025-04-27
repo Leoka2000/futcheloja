@@ -21,7 +21,7 @@
             </div>
             <blockquote>
                 <!-- mr-3 aqui importante -->
-                <p class="mr-3 text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="mr-3 font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Comprei um conjunto para um evento especial e fiquei impressionada! O tecido é maravilhoso, veste super bem e todo mundo elogiou. Já virei cliente fiel!"
                 </p>
             </blockquote>
@@ -53,7 +53,7 @@
 
             </div>
             <blockquote>
-                <p class="text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Preço justo, qualidade excelente e atendimento impecável. Não tem erro! A cada nova coleção fico ainda mais fã da marca."
                 </p>
             </blockquote>
@@ -84,7 +84,7 @@
                 </svg>
             </div>
             <blockquote>
-                <p class="text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Estou encantada! O produto é ainda mais bonito pessoalmente, super confortável e com ótimo acabamento. Vale cada centavo!"
                 </p>
             </blockquote>

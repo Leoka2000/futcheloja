@@ -77,17 +77,17 @@
         </a>
         <a href=" {{ route('components.shopping_cart_component_index') }}" class="relative" x-data="{ loading: false }"
             @click.prevent="
-   loading = true;
-   setTimeout(() => {
-       window.location.href = $el.getAttribute('href');
-   }, 250); //delay q colokey
-">
+           loading = true;
+           setTimeout(() => {
+               window.location.href = $el.getAttribute('href');
+           }, 250); //delay q colokey
+       ">
             <span x-show="!loading">
                 <x-mary-button label="Camisas" icon="o-shopping-bag"
-                    class="text-gray-800 shadow-lg btn-sm md:btn btn-warning" />
+                    class="text-gray-800 shadow-sm btn-sm btn-warning" />
             </span>
             <span x-show="loading" x-cloak>
-                <x-mary-button class="relative shadow-lg btn lg:btn-warning btn-sm btn-warning">
+                <x-mary-button class="relative shadow-sm btn btn-sm">
                     <x-mary-loading class="text-sm text-gray-600 dark:text-gray-600" />
                 </x-mary-button>
             </span>
