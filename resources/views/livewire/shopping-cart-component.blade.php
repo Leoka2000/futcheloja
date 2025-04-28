@@ -6,19 +6,18 @@ use Livewire\WithPagination;
 new class extends Component {
 
     use WithPagination;
+
     public string $selectedCategory = 'todos';
-    public string $searchTerm = ''; // Search input
+    public string $searchTerm = '';
 
     public function products()
     {
         $query = Product::query();
 
-        // Apply category filter
         if ($this->selectedCategory !== 'todos') {
             $query->where('category', $this->selectedCategory);
         }
 
-        // Apply search filter for product name
         if (!empty($this->searchTerm)) {
             $query->where('name', 'like', '%' . $this->searchTerm . '%');
         }
@@ -28,19 +27,22 @@ new class extends Component {
 
     public function setFilter($category)
     {
-        $this->searchTerm = ''; // Clear search term when category changes
+        $this->searchTerm = '';
         $this->selectedCategory = $category;
+        $this->resetPage(); // Reset pagination when filter changes
     }
 
     public function searchMulti($search)
     {
         $this->searchTerm = $search;
+        $this->resetPage();
     }
 
     public function clear()
     {
         $this->selectedCategory = 'todos';
         $this->searchTerm = '';
+        $this->resetPage();
     }
 
     public function with(): array
@@ -51,19 +53,24 @@ new class extends Component {
             'searchTerm' => $this->searchTerm
         ];
     }
+
     public function placeholderForImage()
     {
         return <<<'HTML'
-
            <span class="loader"></span>
-
         HTML;
     }
 };
-
 ?>
 
 <div x-data="{ searchTerm: @entangle('searchTerm') }">
+
+    {{-- Loading Spinner --}}
+    <div wire:loading.flex wire:target="gotoPage, setFilter, searchMulti, clear"
+        class="fixed inset-0 z-50 items-center justify-center bg-white bg-opacity-75">
+        <x-mary-loading class="loading-bars" />
+    </div>
+
 
     <style>
         .pb-5>div>div>div {
@@ -171,9 +178,8 @@ new class extends Component {
             <div class="join">
                 @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                 <input class="join-item btn btn-square" type="radio" name="options" aria-label="{{ $page }}"
-                    wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page)
-                checked="checked" class="btn-warning"
-                @endif />
+                    wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page) checked @endif
+                />
                 @endforeach
             </div>
         </div>
