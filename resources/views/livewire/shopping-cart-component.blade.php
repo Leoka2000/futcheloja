@@ -67,7 +67,7 @@ new class extends Component {
 
     {{-- Loading Spinner --}}
     <div wire:loading.flex wire:target="gotoPage, setFilter, searchMulti, clear"
-        class="fixed inset-0 z-50 items-center justify-center bg-white bg-opacity-75">
+        class="fixed inset-0 z-50 items-center justify-center bg-white bg-opacity-50">
         <x-mary-loading class="loading-bars" />
     </div>
 
