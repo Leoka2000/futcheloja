@@ -80,7 +80,7 @@ class ProductResource extends Resource
                     ->multiple()
                     ->disk('public')
                     ->image()
-                    ->maxSize(20000) // 10 MB in
+                    ->maxSize(5120)  // 10 MB in kilobytes
                     ->columnSpanFull()
 
                     ->visibility('public')
