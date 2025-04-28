@@ -23,7 +23,7 @@ new class extends Component {
             $query->where('name', 'like', '%' . $this->searchTerm . '%');
         }
 
-        return $query->paginate(6);
+        return $query->paginate(10);
     }
 
     public function setFilter($category)
