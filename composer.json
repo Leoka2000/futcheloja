@@ -12,6 +12,7 @@
         "php": "^8.2",
         "blade-ui-kit/blade-icons": "^1.7",
         "filament/filament": "^3.2",
+        "joshembling/image-optimizer": "^1.5",
         "laravel/framework": "^11.31",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",

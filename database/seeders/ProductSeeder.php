@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
             'brasileirao_lancamentos' => 'Brasileirão Lançamentos',
         ];
 
-        // Football jersey images from Unsplash with specific teams
+
         $imageUrls = [
             'https://source.unsplash.com/random/800x800/?barcelona,jersey',
             'https://source.unsplash.com/random/800x800/?realmadrid,jersey',

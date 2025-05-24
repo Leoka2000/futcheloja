@@ -47,7 +47,7 @@
                             class="flex flex-col items-center gap-1 p-4 border border-gray-100 rounded-lg shadow-lg dark:border-gray-800 md:p-6">
                             <x-mary-icon name="o-x-mark"
                                 class="w-12 h-12 p-2 text-gray-400 bg-gray-200 rounded-full shadow dark:bg-gray-700 darktext-gray-500" />
-                            <p class="text-center text-gray-900 dark:text-white">Não há compras </p>
+                            <p class="text-center text-gray-900 dark:text-white">Seu carrinho está vazio. </p>
                             <a href="{{ route('components.shopping_cart_component_index') }}"
                                 x-data="{ loading: false }"
                                 @click.prevent="loading = true; setTimeout(() => window.location.href = $el.href, 250)">
@@ -217,9 +217,14 @@
                         @endforeach
                         @endif
                     </div>
+                    @if(!$cartItems->isEmpty())
                     <h2 class="mt-6 mb-6 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Informações de
                         entrega</h2>
+
+
+
                     @livewire('shopping-cart-form', ['brazilStates' => $brazilStates])
+                    @endif
                 </div>
 
                 <div class="flex-1 max-w-4xl mx-auto mt-6 space-y-6 shadow-lg lg:mt-0 lg:w-full">
