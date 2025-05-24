@@ -67,7 +67,7 @@
 
 
 
-        <x-testimonials />
+     
         <x-faq />
         <x-team />
 
