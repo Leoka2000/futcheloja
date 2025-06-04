@@ -89,7 +89,7 @@
 
 
             @unless (request()->is('shopping-cart'))
-            <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
+          <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
                 @click.prevent="
                 loading = true;
                 setTimeout(() => {
@@ -100,7 +100,7 @@
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
                 </span>
                 <span x-show="loading" x-cloak>
-                    <x-mary-button class="relative btn-ghost btn">
+                    <x-mary-button class="relative btn-ghost xl:w-40 btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
                 </span>
@@ -118,11 +118,11 @@
        ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
-                        class="text-gray-800 shadow-sm btn btn-warning" />
+                        class="text-gray-800 shadow-lg btn lg:w-64 dark:text-gray-800 lg:btn btn-warning" responsive />
                 </span>
                 <span x-show="loading" x-cloak>
-                    <x-mary-button class="relative shadow-sm btn btn-sm">
-                        <x-mary-loading class="text-sm text-gray-600 dark:text-gray-600" />
+                    <x-mary-button class="relative shadow-lg lg:w-64 lg:btn-warning btn-warning">
+                        <x-mary-loading class="text-gray-700 dark:text-gray-700" />
                     </x-mary-button>
                 </span>
             </a>
