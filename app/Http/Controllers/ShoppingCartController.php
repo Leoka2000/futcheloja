@@ -15,12 +15,12 @@ class ShoppingCartController extends Controller
 
     public function updateSize(Request $request, $cartId)
     {
-        // Validate the request
+
         $validated = $request->validate([
             'size' => 'required|string|in:P,M,G,GG',
         ]);
 
-        // Find the cart item
+
         $cartItem = ShoppingCart::where('id', $cartId)
             ->where('user_id', Auth::id())
             ->first();
