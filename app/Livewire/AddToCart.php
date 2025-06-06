@@ -9,7 +9,7 @@ use Mary\Traits\Toast;
 
 class AddToCart extends Component
 {
-    use Toast; // Use the Toast trait
+    use Toast; 
 
     public $productId;
 
@@ -21,36 +21,35 @@ class AddToCart extends Component
     public function addToCart()
     {
         if (!Auth::check()) {
-            // Redirect to login if the user is not authenticated
+           
             return redirect()->route('login');
         }
 
-        // Check if the product is already in the cart
+    
         $existingCartItem = ShoppingCart::where('user_id', Auth::id())
             ->where('product_id', $this->productId)
             ->first();
 
         if ($existingCartItem) {
-            // If the product is already in the cart, increment the quantity
+         
             $existingCartItem->increment('quantity');
         } else {
-            // If the product is not in the cart, add it
+          
             ShoppingCart::create([
-                'user_id' => Auth::id(), // Ensure this is set correctly
+                'user_id' => Auth::id(), 
                 'product_id' => $this->productId,
                 'quantity' => 1,
             ]);
         }
 
-        // Trigger a success toast notification on every button click
         $this->success(
-            'Produto adicionado ao carrinho!', // Title
-            'Seu produto foi adicionado com sucesso ao seu carrinho.', // Description
-            position: 'toast-top toast-end', // Position
-            timeout: 3000 // Timeout in milliseconds
+            'Produto adicionado ao carrinho!', 
+            'Seu produto foi adicionado com sucesso ao seu carrinho.', 
+            position: 'toast-top toast-end', 
+            timeout: 3000 
         );
 
-        // Dispatch an event to update the cart icon or any other UI element
+      
         $this->dispatch('cartUpdated');
     }
 
