@@ -2,7 +2,7 @@
 
 <!-- HEADER STYLE: CLASSIC -->
 <div align="center">
-<img src="./public/logobig.png" style="width: 500px">
+<img src="./public/logobig.png" style="width: 300px">
 
 <p id="description">Online Clothing Store Ecommerce platform using PHP. + Currently the webshop has 2000 users</p>
 
