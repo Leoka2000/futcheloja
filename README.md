@@ -4,7 +4,7 @@
 <div align="center">
 <img src="./public/logobig.png" style="width: 300px">
 
-<p id="description">Online Clothing Store Ecommerce platform using PHP. + Currently the webshop has 2000 users</p>
+<p id="description">Online Clothing Store Ecommerce platform using PHP. more than 2000 users currently</p>
 
 
 <img src="readmeai/assets/logos/purple.svg" width="30%" style="position: relative; top: 0; right: 0;" alt="Project Logo"/>
