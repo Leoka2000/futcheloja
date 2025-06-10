@@ -4409,7 +4409,7 @@ Build futcheloja from the source and intsall dependencies:
 
 <!-- SHIELDS BADGE CURRENTLY DISABLED -->
 	<!-- [![composer][composer-shield]][composer-link] -->
-	<!-- REFERENCE LINKS -->
+
 	<!-- [composer-shield]: https://img.shields.io/badge/PHP-777BB4.svg?style={badge_style}&logo=php&logoColor=white -->
 	<!-- [composer-link]: https://www.php.net/ -->
 
@@ -4420,7 +4420,6 @@ Build futcheloja from the source and intsall dependencies:
 	```
 <!-- SHIELDS BADGE CURRENTLY DISABLED -->
 	<!-- [![npm][npm-shield]][npm-link] -->
-	<!-- REFERENCE LINKS -->
 	<!-- [npm-shield]: None -->
 	<!-- [npm-link]: None -->
 
@@ -4430,33 +4429,16 @@ Build futcheloja from the source and intsall dependencies:
 	❯ echo 'INSERT-INSTALL-COMMAND-HERE'
 	```
 
-### Usage
-
-Run the project with:
-
-**Using [composer](https://www.php.net/):**
-```sh
-php {entrypoint}
-```
-**Using [npm](None):**
-```sh
-echo 'INSERT-RUN-COMMAND-HERE'
-```
 
 ### Testing
 
-Futcheloja uses the {__test_framework__} test framework. Run the test suite with:
+Futcheloja uses the {Pest} test framework. Run the test suite with:
 
 **Using [composer](https://www.php.net/):**
 ```sh
 vendor/bin/phpunit
 ```
-**Using [npm](None):**
-```sh
-echo 'INSERT-TEST-COMMAND-HERE'
-```
 
----
 
 
 
@@ -4509,11 +4491,7 @@ echo 'INSERT-TEST-COMMAND-HERE'
 
 Futcheloja is protected under the [LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
 
----
 
-## Acknowledgments
-
-- Credit `contributors`, `inspiration`, `references`, etc.
 
 <div align="right">
 
