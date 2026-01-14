@@ -64,9 +64,7 @@
             @livewire('brasileirao-release')
         </div>
 
-        <div class="items-center max-w-7xlmx-auto xl:px-5">
-            @livewire('edicao-retro')
-        </div>
+
 
 
         <x-testimonials />

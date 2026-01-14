@@ -1,6 +1,6 @@
 <section class="relative overflow-x-hidden overflow-y-hidden bg-white isolate dark:bg-inherit md:px-0">
     <h3
-        class="flex items-center gap-2 mx-4 mb-10 text-lg font-bold text-left text-gray-600 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center">
+        class="flex items-center gap-2 mx-4 mb-10 text-lg font-bold text-left text-gray-700 dark:text-gray-200 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center">
         Lançamentos Brasileirão
         <span
             class="inline-flex items-center justify-center px-3 py-2 mx-1 text-xs font-medium text-green-700 rounded-md bg-green-50 dark:bg-green-200 ring-1 ring-green-600/20 dark:ring-green-500 ring-inset">
@@ -81,7 +81,7 @@
                         <!-- Price -->
                         <div class="gap-1 mb-1">
                             <p class="text-sm font-semibold text-green-500 dark:text-green-600">R$ {{$product->price}}
-                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600"><del>R$ 159.99</del></span>
+                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600"><del>R$ 299.99</del></span>
                             </p>
                         </div>
 
@@ -100,7 +100,8 @@
                                }, 250);
                            ">
                             <span x-show="!loading">
-                                <x-mary-button icon="o-shopping-bag" label="Ver mais" class="w-full btn" />
+                                <x-mary-button icon="o-shopping-bag" label="Ver mais"
+                                    class="w-full btn-success btn btn-soft" />
                             </span>
                             <span x-show="loading" x-cloak>
                                 <x-mary-button class="relative w-full btn">

@@ -44,7 +44,7 @@
                            loading = true;
                            setTimeout(() => {
                                window.location.href = $el.getAttribute('href');
-                           }, 800); // Artificial delay of 800ms
+                           }, 200);
                       ">
                                 <span x-show="!loading">
                                     <x-mary-button icon="o-shopping-bag" label="Ver mais"

@@ -6,41 +6,43 @@ use Livewire\WithPagination;
 new class extends Component {
 
     use WithPagination;
+
     public string $selectedCategory = 'todos';
-    public string $searchTerm = ''; // Search input
+    public string $searchTerm = '';
 
     public function products()
     {
         $query = Product::query();
 
-        // Apply category filter
         if ($this->selectedCategory !== 'todos') {
             $query->where('category', $this->selectedCategory);
         }
 
-        // Apply search filter for product name
         if (!empty($this->searchTerm)) {
             $query->where('name', 'like', '%' . $this->searchTerm . '%');
         }
 
-        return $query->paginate(12);
+        return $query->paginate(10);
     }
 
     public function setFilter($category)
     {
-        $this->searchTerm = ''; // Clear search term when category changes
+        $this->searchTerm = '';
         $this->selectedCategory = $category;
+        $this->resetPage(); // Reset pagination when filter changes
     }
 
     public function searchMulti($search)
     {
         $this->searchTerm = $search;
+        $this->resetPage();
     }
 
     public function clear()
     {
         $this->selectedCategory = 'todos';
         $this->searchTerm = '';
+        $this->resetPage();
     }
 
     public function with(): array
@@ -51,20 +53,25 @@ new class extends Component {
             'searchTerm' => $this->searchTerm
         ];
     }
+
     public function placeholderForImage()
     {
         return <<<'HTML'
-
            <span class="loader"></span>
-
         HTML;
     }
 };
-
-
 ?>
 
 <div x-data="{ searchTerm: @entangle('searchTerm') }">
+
+    {{-- Loading Spinner --}}
+    <div wire:loading.flex wire:target="gotoPage, setFilter, searchMulti, clear"
+        class="fixed inset-0 z-50 items-center justify-center bg-white bg-opacity-60 dark:opacity-15">
+        <x-mary-loading class="loading-bars" />
+    </div>
+
+
     <style>
         .pb-5>div>div>div {
             font-size: 1rem;
@@ -112,8 +119,8 @@ new class extends Component {
     <x-mary-header size="text-inherit" progress-indicator>
         {{-- SEARCH --}}
         <x-slot:title>
-            <x-mary-choices label="Procure camisas" placeholder="Digite para procurar..." search-function="searchMulti"
-                no-result-text="Ops! Nada aqui..." searchable class="ml-4 sm:w-full lg:w-96 border-warning text-warning"
+            <x-mary-choices placeholder="Digite para procurar..." search-function="searchMulti"
+                no-result-text="Ops! Nada aqui..." searchable class=" sm:w-full lg:w-96 border-warning text-warning"
                 x-model="searchTerm" wire:model="clear" />
         </x-slot:title>
 
@@ -171,9 +178,8 @@ new class extends Component {
             <div class="join">
                 @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                 <input class="join-item btn btn-square" type="radio" name="options" aria-label="{{ $page }}"
-                    wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page)
-                checked="checked"
-                @endif />
+                    wire:click="gotoPage({{ $page }})" @if($products->currentPage() === $page) checked @endif
+                />
                 @endforeach
             </div>
         </div>
@@ -234,7 +240,7 @@ new class extends Component {
                 </x-slot:figure>
                 <div class="gap-1 mb-1">
                     <p class="text-sm font-semibold text-green-500 dark:text-green-600">R$ {{$product->price}} <span
-                            class="mt-1 text-xs text-gray-400 dark:text-gray-600 "> <del>R$ 159.99 <del></span></p>
+                            class="mt-1 text-xs text-gray-400 dark:text-gray-600 "> <del>R$ 299.99 <del></span></p>
                 </div>
                 <div class="flex items-center gap-1">
                     <p class="text-sm">Ou <strong>12x</strong> de <span
@@ -244,13 +250,13 @@ new class extends Component {
 
                 </x-slot:menu>
                 <div>
-                    <button x-data="{ loading: false }" x-bind:class="{'cursor-not-allowed opacity-50': loading}"
+                    <x-mary-button x-data="{ loading: false }" x-bind:class="{'cursor-not-allowed opacity-50': loading}"
                         x-on:click.prevent="loading = true; window.location.href = '{{ route('product.show', $product->id) }}';"
-                        class="w-full mt-5 btn " :disabled="loading">
-                        <x-mary-icon x-show="!loading" name="o-cursor-arrow-rays" class="w-5 md:w-6" />
+                        class="w-full mt-5 btn-success btn btn-soft">
+                        <x-mary-icon x-show=" !loading" name="o-cursor-arrow-rays" class="w-5 md:w-6" />
                         <span x-show="!loading">Detalhes</span>
                         <x-mary-loading class="text-gray-700 dark:text-gray-400" x-show="loading" x-cloak />
-                    </button>
+                    </x-mary-button>
 
 
                 </div>

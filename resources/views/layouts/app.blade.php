@@ -14,6 +14,9 @@
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    {{-- line for not bugging webpacks --}}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -78,16 +81,16 @@
 
             <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
                 @click.prevent="
-        loading = true;
-        setTimeout(() => {
-            window.location.href = $el.getAttribute('href');
-        }, 200); // Artificial delay of 800ms
-    ">
+                loading = true;
+                setTimeout(() => {
+                    window.location.href = $el.getAttribute('href');
+                }, 200);
+            ">
                 <span x-show="!loading">
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
                 </span>
                 <span x-show="loading" x-cloak>
-                    <x-mary-button class="relative btn-ghost btn">
+                    <x-mary-button class="relative btn-ghost xl:w-40 btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
                 </span>
@@ -95,14 +98,13 @@
             <a href="mailto:Futche.sports@gmail.com">
                 <x-mary-button label="Entre em contato" icon="o-chat-bubble-left-right" class="btn-ghost" responsive />
             </a>
-
             <a href=" {{ route('components.shopping_cart_component_index') }}" class="relative"
                 x-data="{ loading: false }" @click.prevent="
-       loading = true;
-       setTimeout(() => {
-           window.location.href = $el.getAttribute('href');
-       }, 250);
-   ">
+           loading = true;
+           setTimeout(() => {
+               window.location.href = $el.getAttribute('href');
+           }, 250); //delay q colokey
+       ">
                 <span x-show="!loading">
                     <x-mary-button label="Camisas" icon="o-shopping-bag"
                         class="text-gray-800 shadow-lg btn lg:w-64 dark:text-gray-800 lg:btn btn-warning" responsive />
@@ -113,7 +115,6 @@
                     </x-mary-button>
                 </span>
             </a>
-
 
         </x-slot:actions>
     </x-mary-nav>

@@ -1,5 +1,5 @@
 <section class="flex flex-wrap items-center justify-center px-4 py-16 bg-inherit dark:bg-inherit min-w-screen">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
         <figure class="max-w-md mx-auto">
             <div class="flex items-center mb-4 text-yellow-300">
                 <svg class="w-5 h-5" fill="#FFD700" viewBox="0 0 22 20">
@@ -21,7 +21,7 @@
             </div>
             <blockquote>
                 <!-- mr-3 aqui importante -->
-                <p class="mr-3 text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="mr-3 font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Comprei um conjunto para um evento especial e fiquei impressionada! O tecido é maravilhoso, veste super bem e todo mundo elogiou. Já virei cliente fiel!"
                 </p>
             </blockquote>
@@ -53,7 +53,7 @@
 
             </div>
             <blockquote>
-                <p class="text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Preço justo, qualidade excelente e atendimento impecável. Não tem erro! A cada nova coleção fico ainda mais fã da marca."
                 </p>
             </blockquote>
@@ -84,7 +84,7 @@
                 </svg>
             </div>
             <blockquote>
-                <p class="text-lg font-semibold text-gray-900 md:text-xl dark:text-white">
+                <p class="font-semibold text-gray-900 text-md md:text-xl dark:text-white">
                     "Estou encantada! O produto é ainda mais bonito pessoalmente, super confortável e com ótimo acabamento. Vale cada centavo!"
                 </p>
             </blockquote>

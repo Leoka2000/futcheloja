@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProductResource extends Resource
+
 {
     protected static ?string $model = Product::class;
 
@@ -77,7 +78,12 @@ class ProductResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Product Images')
                     ->multiple()
+                    ->disk('public')
                     ->image()
+                    ->optimize('jpg')
+                    ->resize(50)
+                    ->columnSpanFull()
+                    ->visibility('public')
                     ->columnSpanFull(),
             ]);
     }

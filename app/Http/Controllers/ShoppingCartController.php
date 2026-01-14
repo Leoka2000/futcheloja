@@ -17,7 +17,7 @@ class ShoppingCartController extends Controller
     {
 
         $validated = $request->validate([
-            'size' => 'required|string|in:P,M,G,GG',
+            'size' => 'required|string|in:P,M,G,GG,2GG,3GG',
         ]);
 
 

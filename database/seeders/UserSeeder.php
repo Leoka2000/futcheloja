@@ -15,14 +15,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Create 10 users using the UserFactory
-        DB::table('users')->truncate();
+
         User::factory()->count(10)->create();
 
+
         // Optionally, create a specific user for testing
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password'), // Use bcrypt to hash the password
-        ]);
+
     }
 }

@@ -64,7 +64,7 @@
             <a href="{{ route('profile.show') }}" class="relative" x-data="{ loading: false }" @click.prevent="
                 loading = true;
                 setTimeout(() => {
-                    window.l    ocation.href = $el.getAttribute('href');
+                    window.location.href = $el.getAttribute('href');
                 }, 200); // Artificial delay of 800ms
             ">
                 <span x-show="!loading">
@@ -89,7 +89,7 @@
 
 
             @unless (request()->is('shopping-cart'))
-            <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
+          <a href="{{ route('components.order-list-index') }}" class="relative" x-data="{ loading: false }"
                 @click.prevent="
                 loading = true;
                 setTimeout(() => {
@@ -100,7 +100,7 @@
                     <x-mary-button label="Minhas compras" icon="o-list-bullet" class="btn-ghost btn" responsive />
                 </span>
                 <span x-show="loading" x-cloak>
-                    <x-mary-button class="relative btn-ghost btn">
+                    <x-mary-button class="relative btn-ghost xl:w-40 btn">
                         <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                     </x-mary-button>
                 </span>

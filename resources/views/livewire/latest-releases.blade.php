@@ -81,11 +81,8 @@
 
                         <!-- Price -->
                         <div class="gap-1 mb-1">
-                            <p class="text-sm font-semibold text-green-500 dark:text-green-600">
-                                R$ {{$product->price}}
-                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600">
-                                    <del>R$ 159.99</del>
-                                </span>
+                            <p class="text-sm font-semibold text-green-500 dark:text-green-600">R$ {{$product->price}}
+                                <span class="mt-1 text-xs text-gray-400 dark:text-gray-600"><del>R$ 299.99</del></span>
                             </p>
                         </div>
 
@@ -106,10 +103,11 @@
                                    }, 250);
                                ">
                             <span x-show="!loading">
-                                <x-mary-button icon="o-shopping-bag" label="Ver mais" class="w-full btn" />
+                                <x-mary-button icon="o-shopping-bag" label="Ver mais"
+                                    class="w-full btn btn-success btn-soft" />
                             </span>
                             <span x-show="loading" x-cloak>
-                                <x-mary-button class="relative w-full btn">
+                                <x-mary-button class="relative w-full btn-success btn btn-soft">
                                     <x-mary-loading class="text-gray-500 dark:text-gray-500" />
                                 </x-mary-button>
                             </span>

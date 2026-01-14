@@ -8,77 +8,40 @@
     </x-slot>
 
     <x-slot name="form">
-        <!-- Foto do Perfil -->
-        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
-                <!-- Input de Arquivo para Foto do Perfil -->
-                <input type="file" id="photo" class="hidden"
-                            wire:model.live="photo"
-                            x-ref="photo"
-                            x-on:change="
-                                    photoName = $refs.photo.files[0].name;
-                                    const reader = new FileReader();
-                                    reader.onload = (e) => {
-                                        photoPreview = e.target.result;
-                                    };
-                                    reader.readAsDataURL($refs.photo.files[0]);
-                            " />
 
-                <x-label for="photo" value="{{ __('Foto') }}" />
-
-                <!-- Foto do Perfil Atual -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full size-20 object-cover">
-                </div>
-
-                <!-- Pré-visualização da Nova Foto do Perfil -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full size-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
-                </div>
-
-                <x-secondary-button class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Selecionar Uma Nova Foto') }}
-                </x-secondary-button>
-
-                @if ($this->user->profile_photo_path)
-                    <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remover Foto') }}
-                    </x-secondary-button>
-                @endif
-
-                <x-input-error for="photo" class="mt-2" />
-            </div>
-        @endif
 
         <!-- Nome -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="name" value="{{ __('Nome') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required autocomplete="name" />
+            <x-input id="name" type="text" class="block w-full mt-1" wire:model="state.name" required
+                autocomplete="name" />
             <x-input-error for="name" class="mt-2" />
         </div>
 
         <!-- E-mail -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('E-mail') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
+            <x-input id="email" type="email" class="block w-full mt-1" wire:model="state.email" required
+                autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2 dark:text-white">
-                    {{ __('Seu endereço de e-mail não foi verificado.') }}
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !
+            $this->user->hasVerifiedEmail())
+            <p class="mt-2 text-sm dark:text-white">
+                {{ __('Seu endereço de e-mail não foi verificado.') }}
 
-                    <button type="button" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 dark:focus:ring-offset-gray-800" wire:click.prevent="sendEmailVerification">
-                        {{ __('Clique aqui para reenviar o e-mail de verificação.') }}
-                    </button>
-                </p>
+                <button type="button"
+                    class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 dark:focus:ring-offset-gray-800"
+                    wire:click.prevent="sendEmailVerification">
+                    {{ __('Clique aqui para reenviar o e-mail de verificação.') }}
+                </button>
+            </p>
 
-                @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                        {{ __('Um novo link de verificação foi enviado para o seu endereço de e-mail.') }}
-                    </p>
-                @endif
+            @if ($this->verificationLinkSent)
+            <p class="mt-2 text-sm font-medium text-green-600 dark:text-green-400">
+                {{ __('Um novo link de verificação foi enviado para o seu endereço de e-mail.') }}
+            </p>
+            @endif
             @endif
         </div>
     </x-slot>
